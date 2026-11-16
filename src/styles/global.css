@@ -379,7 +379,7 @@ p { margin: 0; }
 
 /* Occasions horizontal scroll */
 .occasions { position: relative; height: 420vh; background: var(--ink); color: #fff; }
-.occasions__sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; gap: 36px; }
+.occasions__sticky { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; gap: 36px; }
 .occasions__head h2 { font-size: clamp(2.4rem, 6vw, 4.8rem); }
 .occasions__head .script { color: var(--rose); }
 .occasions__track { display: flex; gap: 3vw; padding-left: var(--gutter); width: max-content; align-items: stretch; }
@@ -535,7 +535,7 @@ p { margin: 0; }
 .look__img img { width: 100%; height: 100%; object-fit: cover; }
 
 .zoom { position: relative; height: 300vh; }
-.zoom__sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+.zoom__sticky { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
 .zoom__el { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; will-change: transform; }
 .zoom__img { position: relative; width: 25vw; height: 25vh; border-radius: 10px; overflow: hidden; }
 .zoom__img img { width: 100%; height: 100%; object-fit: cover; }
@@ -677,9 +677,12 @@ p { margin: 0; }
   .footer__grid { grid-template-columns: 1fr 1fr; }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .nav__links, .nav__cta { display: none; }
   .burger { display: block; }
+}
+
+@media (max-width: 900px) {
   .hero { align-items: flex-end; }
   .hero { padding-top: 0; }
   .hero__scene { inset: 70px 0 auto 0; height: 44svh; }
@@ -695,8 +698,10 @@ p { margin: 0; }
   .steps__row { grid-template-columns: 1fr 1fr; row-gap: 44px; }
   .steps__line { display: none; }
   .values__grid, .contact-cards__grid { grid-template-columns: 1fr 1fr; }
-  .modal__panel { grid-template-columns: 1fr; }
-  .modal__panel > img { min-height: 0; height: 300px; }
+  .modal { place-items: start center; padding: 12px; }
+  .modal__panel { grid-template-columns: 1fr; overflow-y: auto; max-height: calc(100svh - 24px); border-radius: 22px; }
+  .modal__panel > img { min-height: 0; height: clamp(220px, 42svh, 360px); }
+  .modal__body { overflow: visible; }
   .look__card { grid-template-columns: 1fr; grid-template-rows: 45% 55%; }
   .look__img { order: -1; }
   .look__text { padding: 22px; justify-content: flex-start; }
@@ -729,6 +734,148 @@ p { margin: 0; }
   .wa-float { width: 56px; height: 56px; font-size: 26px; right: 16px; bottom: 16px; }
   .wa-float__tip { display: none; }
   .marquee--red { margin: 30px -20px; }
+}
+
+/* ---------- Tablet / laptop fine-tuning ---------- */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .nav__links { gap: 0; }
+  .nav__link { padding: 8px 10px; }
+  .nav__underline { left: 10px; right: 10px; }
+}
+
+@media (min-width: 1600px) {
+  .container { width: min(1440px, 100%); }
+  .nav { width: min(1480px, calc(100% - 28px)); }
+}
+
+/* Touch devices (phones + tablets) have no hover: always show card actions & tips */
+@media (hover: none) {
+  .product__overlay { transform: none; }
+  .insta__hover { display: none; }
+  .wa-float__tip { display: none; }
+  .meaning__item { cursor: pointer; }
+}
+
+@media (max-width: 900px) {
+  .meaning__item { padding: 18px 20px; }
+  .meaning__logo { max-width: 380px; }
+  .story__visual { height: clamp(380px, 95vw, 620px); }
+  .occasions__intro { width: min(60vw, 380px); }
+  .testimonials__quote { font-size: 11rem; top: -60px; }
+  .accordion__item button { padding: 18px 20px; font-size: 1.25rem; }
+  .accordion__item p { padding: 0 20px 20px 52px; }
+  .filterbar__tools { width: 100%; }
+  .filterbar__search { flex: 1 1 200px; }
+  .filterbar__search input { width: 100%; min-width: 0; }
+  .look { height: 86svh; }
+  .look__card { height: 76svh; }
+  .look__text h3 { margin-bottom: 10px; }
+  .zoom__el--z1 .zoom__img { width: 45vw; height: 22vh; }
+  .zoom__el--z2 .zoom__img { width: 30vw; height: 30vh; }
+  .zoom__el--z3 .zoom__img { width: 32vw; height: 20vh; }
+  .zoom__el--z4 .zoom__img { width: 30vw; height: 18vh; }
+  .zoom__el--z5 .zoom__img { width: 38vw; height: 18vh; }
+  .zoom__el--z6 .zoom__img { width: 24vw; height: 14vh; }
+}
+
+@media (max-width: 600px) {
+  .nav { top: 10px; width: calc(100% - 20px); padding: 8px 8px 8px 12px; }
+  .nav__brand img { width: 38px; height: 38px; }
+  .nav__word { font-size: 1.45rem; }
+  .burger { width: 42px; height: 42px; }
+  .burger span { left: 12px; right: 12px; }
+  .burger span:first-child { top: 17px; }
+  .burger span:last-child { top: 24px; }
+  .burger.is-open span:first-child, .burger.is-open span:last-child { top: 20px; }
+  .mobile-menu { padding: 90px 24px 32px; }
+
+  .hero__actions .btn, .visit__actions .btn { flex: 1 1 100%; }
+  .hero__copy, .page-hero p, .section-heading__copy { font-size: 1rem; }
+  .page-hero { min-height: 80svh; padding-top: 120px; }
+  .page-hero--short { min-height: 68svh; }
+
+  .cat-card__body { left: 18px; right: 18px; bottom: 18px; }
+  .categories__item .cat-card,
+  .categories__item--0 .cat-card,
+  .categories__item--1 .cat-card,
+  .categories__item--2 .cat-card { aspect-ratio: 4 / 5; }
+
+  .story__visual { height: 110vw; }
+  .story__float { border-width: 5px; }
+
+  .occasions__sticky { gap: 24px; }
+  .occasion__body { padding: 18px 20px 22px; }
+  .occasion__body h3 { font-size: 1.6rem; }
+
+  .why__card, .value { padding: 28px 22px; }
+  .testimonials__quote { font-size: 8rem; top: -40px; }
+  .testimonials__card { border-radius: 22px; }
+  .insta__grid, .insta__col { gap: 10px; }
+
+  .visit { padding-inline: 0; }
+  .visit__frame { height: auto; min-height: 78svh; }
+  .visit__content { position: relative; min-height: 78svh; }
+  .visit__frame > img { position: absolute; inset: 0; }
+
+  .filterbar { padding: 10px; border-radius: 18px; margin-bottom: 28px; }
+  .filterbar__tools select { flex: 1 1 auto; }
+  .filterbar__count { width: 100%; text-align: right; }
+
+  .sizeguide th, .sizeguide td { padding: 10px 8px; font-size: 0.85rem; }
+
+  .look { height: 84svh; }
+  .look__card { height: 74svh; border-radius: 24px; grid-template-rows: 40% 60%; }
+  .look__text { padding: 18px; }
+  .look__text h3 { font-size: 1.8rem; }
+  .look__text p { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .zoom__caption p { font-size: 1rem; }
+
+  .journey__card { padding: 22px; }
+  .journey__card h3 { font-size: 1.6rem; }
+  .journey__list { gap: 28px; }
+  .meaning__item h3 { font-size: 1.4rem; }
+
+  .contact-cards { margin-top: -40px; }
+  .ccard a { padding: 24px; }
+  .store-map__frame { height: auto; display: flex; flex-direction: column; border-radius: 22px; }
+  .store-map__frame iframe { height: 320px; }
+  .store-map__card { position: static; width: auto; border-radius: 0; box-shadow: none; padding: 22px; }
+  .form { border-radius: 22px; }
+
+  .footer__grid { gap: 32px; padding-top: 40px; }
+  .footer__bottom { flex-direction: column; text-align: center; align-items: center; }
+  .modal__body h3 { padding-right: 40px; }
+}
+
+@media (max-width: 380px) {
+  .container { padding: 0 14px; }
+  .nav__word { font-size: 1.25rem; }
+  .btn { padding: 14px 22px; font-size: 0.9rem; }
+  .product-grid { gap: 22px 10px; }
+  .product__tag, .product__off { top: 8px; padding: 4px 8px; font-size: 0.65rem; }
+  .product__tag { left: 8px; }
+  .product__off { right: 8px; }
+  .product__overlay { left: 8px; right: 8px; bottom: 8px; }
+  .hero__badges { gap: 14px; font-size: 0.82rem; }
+  .stats__grid { column-gap: 12px; }
+}
+
+/* Phones / small tablets held sideways: short viewports */
+@media (max-height: 560px) and (orientation: landscape) {
+  .hero { min-height: auto; padding: 100px 0 60px; align-items: center; }
+  .hero__scene { inset: 0 0 0 45%; height: auto; opacity: 0.7; }
+  .hero__content { padding-top: 0; }
+  .page-hero, .page-hero--short { min-height: auto; padding: 110px 0 50px; }
+  .mobile-menu { padding: 70px 32px 20px; overflow-y: auto; }
+  .mobile-menu li a { font-size: 2rem; }
+  .look { position: relative; top: auto !important; height: auto; margin-bottom: 20px; }
+  .look__card { height: auto; min-height: 80svh; grid-template-columns: 1fr 1fr; grid-template-rows: none; }
+  .look__img { order: 0; }
+  .occasion__img { height: 34svh; }
+  .occasions__sticky { gap: 14px; }
+  .modal__panel { grid-template-columns: 1fr 1fr; }
+  .modal__panel > img { height: 100%; }
+  .visit__frame, .visit__content { min-height: 100svh; }
 }
 
 @media (prefers-reduced-motion: reduce) {
