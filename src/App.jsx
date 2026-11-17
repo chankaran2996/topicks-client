@@ -17,8 +17,35 @@ import Lookbook from './pages/Lookbook';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
+import Login from './pages/Login';
+import ForgotPassword from './pages/ForgotPassword';
+import SetPassword from './pages/SetPassword';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import RequireRole from './auth/RequireRole';
 
-export default function App() {
+// Private pages (login + role dashboards) render without the shop chrome.
+const PRIVATE_PREFIXES = ['/login', '/forgot-password', '/set-password', '/admin'];
+const isPrivatePath = (path) => PRIVATE_PREFIXES.some((p) => path === p || path.startsWith(`${p}/`));
+
+function PrivateApp() {
+  return (
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/set-password" element={<SetPassword />} />
+      <Route
+        path="/admin/*"
+        element={
+          <RequireRole roles={['admin']}>
+            <AdminDashboard />
+          </RequireRole>
+        }
+      />
+    </Routes>
+  );
+}
+
+function PublicApp() {
   const location = useLocation();
   const [loading, setLoading] = useState(true);
 
@@ -43,4 +70,9 @@ export default function App() {
       <WhatsAppFloat />
     </SmoothScroll>
   );
+}
+
+export default function App() {
+  const { pathname } = useLocation();
+  return isPrivatePath(pathname) ? <PrivateApp /> : <PublicApp />;
 }
