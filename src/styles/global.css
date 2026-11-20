@@ -614,6 +614,18 @@ p { margin: 0; }
 .ccard--fb .ccard__icon { background: #1877f2; }
 .ccard--map .ccard__icon { background: var(--green); }
 .ccard--mail .ccard__icon { background: var(--ink); }
+.ccard--tailor .ccard__icon { background: var(--gold); }
+.contact-cards__wide { grid-column: 1 / -1; }
+.contact-cards__wide .ccard a { display: grid; grid-template-columns: auto 1fr; column-gap: 22px; align-items: center; }
+.contact-cards__wide .ccard__icon { grid-row: span 3; margin-bottom: 0; }
+@media (max-width: 600px) {
+  .contact-cards__wide .ccard a { display: flex; }
+  .contact-cards__wide .ccard__icon { margin-bottom: 14px; }
+}
+
+/* ---------- Tailoring ---------- */
+.tailoring-hero__actions, .tailoring-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
+.tailoring-cta { justify-content: center; }
 .ccard__title { font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); }
 .ccard b { font-family: var(--serif); font-size: 1.5rem; font-weight: 600; word-break: break-word; }
 .ccard small { color: var(--ink-soft); }

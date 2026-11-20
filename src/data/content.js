@@ -91,7 +91,32 @@ export const STORE_IMAGES = {
 export const FAQS = [
   { q: 'What are your store timings?', a: 'We are open all days, 10:00 AM – 9:30 PM. Festive season timings may extend — drop us a WhatsApp to confirm.' },
   { q: 'Can I order on WhatsApp?', a: 'Yes! Message us on 87921 95368 with the product name or a screenshot. We share photos, videos and sizes, and help you reserve it for pickup.' },
-  { q: 'Do you offer alterations?', a: 'Basic fitting alterations can be arranged for most garments. Ask our team in-store and we will guide you.' },
+  { q: 'Do you offer tailoring and alterations?', a: 'Yes! We stitch blouses, salwar sets, lehengas and custom designs, and do alterations on any garment. See our Tailoring page or pick “Tailoring” in the enquiry form.' },
   { q: 'What sizes do you stock?', a: 'Most styles are available from XS to 3XL. Size availability varies by design, so check with us for a specific piece.' },
   { q: 'What is your exchange policy?', a: 'Unused items with tags can be exchanged within 7 days with the bill. Sale items may be final — just ask at billing.' },
+];
+
+// ---------- Tailoring ----------
+export const TAILORING_SERVICES = [
+  { t: 'Blouse stitching', c: 'Designer and simple blouses: princess cut, boat neck, padded, back-open and more, matched to your saree.', e: '01' },
+  { t: 'Salwar & churidar sets', c: 'Kurtis, salwars, churidars and palazzo sets stitched to your exact measurements.', e: '02' },
+  { t: 'Lehengas & gowns', c: 'Festive lehengas, anarkalis and gowns, with lining, cancan and finishing done right.', e: '03' },
+  { t: 'Alterations', c: 'Take-ins, let-outs, length changes and refits for store-bought or old favourites.', e: '04' },
+  { t: 'Saree fall & pico', c: 'Neat fall stitching, pico edging and pre-pleating so your saree is ready to drape.', e: '05' },
+  { t: 'Custom designs', c: 'Bring a picture or an idea. We help with fabric, cut and detailing to make it yours.', e: '06' },
+];
+
+export const TAILORING_STEPS = [
+  { n: '01', t: 'Share your idea', c: 'Send a design photo or describe what you want on WhatsApp, or walk into the store.' },
+  { n: '02', t: 'Get measured', c: 'We take measurements in-store, or you can share a well-fitting garment for reference.' },
+  { n: '03', t: 'We stitch', c: 'Our tailors cut and stitch with care. We confirm the delivery date upfront.' },
+  { n: '04', t: 'Trial & pickup', c: 'Try it on in-store. Any small fitting touch-ups are done before you take it home.' },
+];
+
+export const TAILORING_FAQS = [
+  { q: 'How long does stitching take?', a: 'Most blouses and kurti sets are ready in 5–7 days. Bridal and festive orders may take longer, so message us early during wedding and festive seasons.' },
+  { q: 'Can I bring my own fabric?', a: 'Yes. Bring your own fabric, or pick from what we have in store and we will stitch it for you.' },
+  { q: 'Do I need to visit for measurements?', a: 'Visiting is best for a perfect fit. If you cannot, share a garment that fits you well and we will take measurements from it.' },
+  { q: 'How much does it cost?', a: 'Pricing depends on the design, lining and detailing. Send us the design on WhatsApp and we will share a quote.' },
+  { q: 'Do you alter clothes not bought at Topicks?', a: 'Yes, we take alteration work for any garment, not just ones bought from our store.' },
 ];

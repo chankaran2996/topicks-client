@@ -16,6 +16,7 @@ import Collections from './pages/Collections';
 import Lookbook from './pages/Lookbook';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Tailoring from './pages/Tailoring';
 import NotFound from './pages/NotFound';
 import Login from './pages/Login';
 import ForgotPassword from './pages/ForgotPassword';
@@ -61,6 +62,7 @@ function PublicApp() {
           <Route path="/" element={<Home />} />
           <Route path="/collections" element={<Collections />} />
           <Route path="/lookbook" element={<Lookbook />} />
+          <Route path="/tailoring" element={<Tailoring />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />

@@ -3,14 +3,14 @@ import { AnimatePresence, motion } from 'framer-motion';
 import SectionHeading from '../common/SectionHeading';
 import { FAQS } from '../../data/content';
 
-export default function Faq() {
+export default function Faq({ items = FAQS, eyebrow = 'Good to know' }) {
   const [open, setOpen] = useState(0);
   return (
     <section className="section faq">
       <div className="container faq__wrap">
-        <SectionHeading eyebrow="Good to know" title="Frequently" script="asked" />
+        <SectionHeading eyebrow={eyebrow} title="Frequently" script="asked" />
         <div className="accordion">
-          {FAQS.map((f, i) => (
+          {items.map((f, i) => (
             <div className={`accordion__item ${open === i ? 'is-open' : ''}`} key={f.q}>
               <button onClick={() => setOpen(open === i ? -1 : i)} aria-expanded={open === i}>
                 <span className="accordion__num">Q{i + 1}</span>

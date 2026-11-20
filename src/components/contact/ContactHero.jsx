@@ -22,7 +22,7 @@ export default function ContactHero() {
           <em className="script">you dressed</em>
         </h1>
         <motion.p className="dark" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.8 }}>
-          Questions about a piece, sizes or store timings? We usually reply on WhatsApp within minutes.
+          Questions about a piece, sizes, tailoring or store timings? We usually reply on WhatsApp within minutes.
         </motion.p>
       </div>
     </section>

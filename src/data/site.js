@@ -26,6 +26,7 @@ export const NAV_LINKS = [
   { to: '/', label: 'Home' },
   { to: '/collections', label: 'Collections' },
   { to: '/lookbook', label: 'Lookbook' },
+  { to: '/tailoring', label: 'Tailoring' },
   { to: '/about', label: 'Our Story' },
   { to: '/contact', label: 'Visit Us' },
 ];
