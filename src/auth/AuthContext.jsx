@@ -28,7 +28,10 @@ export function AuthProvider({ children }) {
     setUser(null);
   }, []);
 
-  const value = useMemo(() => ({ user, checking, login, logout }), [user, checking, login, logout]);
+  // Lets pages refresh the signed-in user's details after editing them.
+  const updateUser = useCallback((next) => setUser(next), []);
+
+  const value = useMemo(() => ({ user, checking, login, logout, updateUser }), [user, checking, login, logout, updateUser]);
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
